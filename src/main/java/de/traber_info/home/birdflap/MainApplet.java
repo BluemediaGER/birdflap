@@ -105,14 +105,11 @@ public class MainApplet extends PApplet {
                     bird.kill();
                 } else {
 
-                    // Checks if bird passes a pipe
-                    if (bird.getX() >= p.getX() + p.getWidth() / 2) {
-
+                    // Checks if bird passes a pipe and if the pipe can award points
+                    if (bird.getX() >= p.getX() + p.getWidth() / 2 && p.canAwardPoint()) {
                         // Increase score
-                        if (p.canAwardPoint()) {
-                            score ++;
-                            p.setCanAwardPoint(false);
-                        }
+                        score ++;
+                        p.setCanAwardPoint(false);
                     }
                 }
             }

@@ -9,7 +9,9 @@ public class Bird extends Entity {
     private PApplet applet;
 
     // Bird attributes
-    private float x, y;
+    private float x;
+    private float y;
+
     private boolean isAlive = true;
 
     // Height at which bird collides with base
@@ -29,7 +31,6 @@ public class Bird extends Entity {
     private float velocity           = 0;
     private float gravity            = .41f;
     private float delay              = 0;
-    private float rotation           = 0;
 
     /**
      * Create a new bird instance
@@ -128,7 +129,7 @@ public class Bird extends Entity {
      */
     private void renderBird () {
         // Calculate angle to rotate bird based on y-velocity
-        rotation = (float) (((90 * (velocity + 25) / 25) - 90) * Math.PI / 180);
+        float rotation = (float) (((90 * (velocity + 25) / 25) - 90) * Math.PI / 180);
 
         // Divide for clean jump
         rotation /= 2;
@@ -136,12 +137,10 @@ public class Bird extends Entity {
         // Handle rotation offset
         rotation = rotation > Math.PI / 2 ? (float) (Math.PI / 2) : rotation;
 
-        if (!isAlive()) {
-            // Drop bird on death
-            if (y < baseCollision - 10) {
-                velocity += gravity;
-                y += (int) velocity;
-            }
+        // Drop bird on death
+        if (!isAlive() && y < baseCollision - 10) {
+            velocity += gravity;
+            y += (int) velocity;
         }
 
         // Render bird with calculated rotation
