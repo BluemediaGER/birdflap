@@ -1,5 +1,7 @@
 # birdflap 
-  
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51d3c739555f480a926bd85281963d0f)](https://www.codacy.com/manual/BluemediaGER/birdflap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BluemediaGER/birdflap&amp;utm_campaign=Badge_Grade)
+
 birdflap is a clone of the popular mobile game flappybird. The game is written in java and uses the processing library for graphics and rendering. 
   
 ## Building
